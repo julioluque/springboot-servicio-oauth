@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import com.jluque.springboot.app.commons.models.entity.usuarios.Usuario;
 import com.jluque.springboot.app.oauth.client.UsuarioFeignClient;
 
-@Service
+@Service 
 public class UsuarioService implements UserDetailsService {
 
 	private static final Logger log = LoggerFactory.getLogger(UsuarioService.class);
