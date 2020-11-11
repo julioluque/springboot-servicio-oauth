@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 import com.jluque.springboot.app.commons.models.entity.usuarios.Usuario;
 import com.jluque.springboot.app.oauth.client.UsuarioFeignClient;
 
-@Service 
-public class UsuarioService implements UserDetailsService {
+@Service
+public class UsuarioService implements UserDetailsService, IUsuarioService {
 
 	private static final Logger log = LoggerFactory.getLogger(UsuarioService.class);
 	@Autowired
@@ -43,6 +43,11 @@ public class UsuarioService implements UserDetailsService {
 
 		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true,
 				authorities);
+	}
+
+	@Override
+	public Usuario findByUsername(String username) {
+		return client.findByUsername(username);
 	}
 
 }
